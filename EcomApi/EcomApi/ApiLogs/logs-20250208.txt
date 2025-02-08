@@ -1,0 +1,8 @@
+2025-02-08 21:52:26.234 +05:30 [INF] Sending request to Auth0 to create user: iphone@gmail.com
+2025-02-08 21:53:10.789 +05:30 [INF] Auth0 user created successfully with ID: 67a784ed0515e0a097e65162
+2025-02-08 21:53:11.826 +05:30 [INF] Successfully created Stripe customer with ID: cus_RjkI1wsYeK1TzN for email: iphone@gmail.com
+2025-02-08 21:53:11.829 +05:30 [INF] Stripe customer created successfully for email: iphone@gmail.com
+2025-02-08 21:53:12.774 +05:30 [INF] Primary address added for user ID: 67a784ed0515e0a097e65162
+2025-02-08 21:53:12.775 +05:30 [INF] User registered successfully with ID: 67a784ed0515e0a097e65162
+2025-02-08 21:53:14.185 +05:30 [INF] WelCome Email Send To the User: iphone@gmail.com
+2025-02-08 21:54:22.371 +05:30 [INF] Login successful for email: iphone@gmail.com
