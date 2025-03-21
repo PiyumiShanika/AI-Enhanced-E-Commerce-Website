@@ -220,7 +220,7 @@ namespace EcomApi.Infrastructure._3P_Services
         //sample
         public void SetHttpClient(HttpClient client)
         {
-            _client = client;
+            _client = client;  
         }
 
     }

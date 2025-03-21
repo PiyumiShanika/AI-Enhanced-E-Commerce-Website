@@ -13,3 +13,19 @@ D:\ECom api Send Sip\EcomApi\EcomApi.Application\obj\Debug\net8.0\EcomApi.Applic
 D:\ECom api Send Sip\EcomApi\EcomApi.Application\obj\Debug\net8.0\refint\EcomApi.Application.dll
 D:\ECom api Send Sip\EcomApi\EcomApi.Application\obj\Debug\net8.0\EcomApi.Application.pdb
 D:\ECom api Send Sip\EcomApi\EcomApi.Application\obj\Debug\net8.0\ref\EcomApi.Application.dll
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Application\bin\Debug\net8.0\EcomApi.Application.deps.json
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Application\bin\Debug\net8.0\EcomApi.Application.dll
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Application\bin\Debug\net8.0\EcomApi.Application.pdb
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Application\bin\Debug\net8.0\EcomApi.Domain.dll
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Application\bin\Debug\net8.0\EcomApi.Domain.pdb
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Application\obj\Debug\net8.0\EcomApi.Application.csproj.AssemblyReference.cache
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Application\obj\Debug\net8.0\EcomApi.Application.GeneratedMSBuildEditorConfig.editorconfig
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Application\obj\Debug\net8.0\EcomApi.Application.AssemblyInfoInputs.cache
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Application\obj\Debug\net8.0\EcomApi.Application.AssemblyInfo.cs
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Application\obj\Debug\net8.0\EcomApi.Application.csproj.CoreCompileInputs.cache
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Application\obj\Debug\net8.0\EcomApi.Application.sourcelink.json
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Application\obj\Debug\net8.0\EcomApi..6BFDD79B.Up2Date
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Application\obj\Debug\net8.0\EcomApi.Application.dll
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Application\obj\Debug\net8.0\refint\EcomApi.Application.dll
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Application\obj\Debug\net8.0\EcomApi.Application.pdb
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Application\obj\Debug\net8.0\ref\EcomApi.Application.dll

@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "zVI9izDol1rQdz4xF2IBPDI3HyMoqQmX6l5P/Ukoe/I=",
+  "Hash": "7e10sxILi1Y8+otqDikXWcsTXCMCH1uH01E2N42C5hg=",
   "Source": "EcomApi",
   "BasePath": "_content/EcomApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

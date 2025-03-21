@@ -1,0 +1,17 @@
+2025-02-09 00:30:36.177 +05:30 [WRN] Login failed for email: shanikagunarathna98@gmail.com, Status Code: "Forbidden"
+2025-02-09 00:30:48.987 +05:30 [WRN] Login failed for email: shanikagunarathna98@gmail.com, Status Code: "Forbidden"
+2025-02-09 00:31:07.780 +05:30 [WRN] Login failed for email: shanikagunarathna98@gmail.com, Status Code: "Forbidden"
+2025-02-09 00:31:17.874 +05:30 [WRN] Login failed for email: shanikagunarathna98@gmail.com, Status Code: "Forbidden"
+2025-02-09 00:33:53.368 +05:30 [INF] Sending request to Auth0 to create user: shanika123@gmail.com
+2025-02-09 00:33:54.385 +05:30 [INF] Auth0 user created successfully with ID: 67a7aa966b3663abbf79c12d
+2025-02-09 00:33:55.455 +05:30 [INF] Successfully created Stripe customer with ID: cus_RjmtYYMpkJnkHs for email: shanika123@gmail.com
+2025-02-09 00:33:55.458 +05:30 [INF] Stripe customer created successfully for email: shanika123@gmail.com
+2025-02-09 00:33:57.184 +05:30 [INF] Primary address added for user ID: 67a7aa966b3663abbf79c12d
+2025-02-09 00:33:57.185 +05:30 [INF] User registered successfully with ID: 67a7aa966b3663abbf79c12d
+2025-02-09 00:33:59.044 +05:30 [INF] WelCome Email Send To the User: shanika123@gmail.com
+2025-02-09 00:35:04.542 +05:30 [INF] Login successful for email: shanika123@gmail.com
+2025-02-09 00:38:27.511 +05:30 [INF] User ID fetched successfully: auth0|67a7aa966b3663abbf79c12d
+2025-02-09 00:38:27.512 +05:30 [INF] Retrieving addresses for User ID: 67a7aa966b3663abbf79c12d
+2025-02-09 14:31:16.950 +05:30 [INF] Login successful for email: shanika123@gmail.com
+2025-02-09 14:32:28.590 +05:30 [INF] User ID fetched successfully: auth0|67a7aa966b3663abbf79c12d
+2025-02-09 14:32:28.593 +05:30 [INF] Retrieving addresses for User ID: 67a7aa966b3663abbf79c12d

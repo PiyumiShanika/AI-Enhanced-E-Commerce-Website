@@ -17,3 +17,23 @@ D:\ECom api Send Sip\EcomApi\EcomApi.Infrastructure\obj\Debug\net8.0\EcomApi.Inf
 D:\ECom api Send Sip\EcomApi\EcomApi.Infrastructure\obj\Debug\net8.0\ref\EcomApi.Infrastructure.dll
 D:\ECom api Send Sip\EcomApi\EcomApi.Infrastructure\bin\Debug\net8.0\EcomApi.Infrastructure.runtimeconfig.json
 D:\ECom api Send Sip\EcomApi\EcomApi.Infrastructure\obj\Debug\net8.0\EcomApi.Infrastructure.genruntimeconfig.cache
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Infrastructure\bin\Debug\net8.0\EcomApi.Infrastructure.deps.json
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Infrastructure\bin\Debug\net8.0\EcomApi.Infrastructure.runtimeconfig.json
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Infrastructure\bin\Debug\net8.0\EcomApi.Infrastructure.dll
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Infrastructure\bin\Debug\net8.0\EcomApi.Infrastructure.pdb
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Infrastructure\bin\Debug\net8.0\EcomApi.Application.dll
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Infrastructure\bin\Debug\net8.0\EcomApi.Domain.dll
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Infrastructure\bin\Debug\net8.0\EcomApi.Application.pdb
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Infrastructure\bin\Debug\net8.0\EcomApi.Domain.pdb
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Infrastructure\obj\Debug\net8.0\EcomApi.Infrastructure.csproj.AssemblyReference.cache
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Infrastructure\obj\Debug\net8.0\EcomApi.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Infrastructure\obj\Debug\net8.0\EcomApi.Infrastructure.AssemblyInfoInputs.cache
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Infrastructure\obj\Debug\net8.0\EcomApi.Infrastructure.AssemblyInfo.cs
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Infrastructure\obj\Debug\net8.0\EcomApi.Infrastructure.csproj.CoreCompileInputs.cache
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Infrastructure\obj\Debug\net8.0\EcomApi.Infrastructure.sourcelink.json
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Infrastructure\obj\Debug\net8.0\EcomApi..A80ED57E.Up2Date
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Infrastructure\obj\Debug\net8.0\EcomApi.Infrastructure.dll
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Infrastructure\obj\Debug\net8.0\refint\EcomApi.Infrastructure.dll
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Infrastructure\obj\Debug\net8.0\EcomApi.Infrastructure.pdb
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Infrastructure\obj\Debug\net8.0\EcomApi.Infrastructure.genruntimeconfig.cache
+E:\ICBT\Bsc final project\EcomApi\EcomApi.Infrastructure\obj\Debug\net8.0\ref\EcomApi.Infrastructure.dll

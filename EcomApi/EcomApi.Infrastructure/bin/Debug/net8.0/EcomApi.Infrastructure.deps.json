@@ -1049,7 +1049,10 @@
           "Stripe.net": "44.9.0"
         },
         "runtime": {
-          "EcomApi.Application.dll": {}
+          "EcomApi.Application.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "EcomApi.Domain/1.0.0": {
@@ -1058,7 +1061,10 @@
           "Serilog": "3.1.1"
         },
         "runtime": {
-          "EcomApi.Domain.dll": {}
+          "EcomApi.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
