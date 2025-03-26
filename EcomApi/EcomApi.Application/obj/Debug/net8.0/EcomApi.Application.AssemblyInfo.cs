@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EcomApi.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d230b4b291778fd3a94a84d047824d9352b77b9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5c3741446a630ea59b5ed8115e6e628baca3e1e2")]
 [assembly: System.Reflection.AssemblyProductAttribute("EcomApi.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EcomApi.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
