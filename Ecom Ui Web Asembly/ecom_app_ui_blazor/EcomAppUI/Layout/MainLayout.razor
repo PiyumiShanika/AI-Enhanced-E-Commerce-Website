@@ -1,0 +1,49 @@
+﻿@using BlazorBootstrap
+@inherits LayoutComponentBase
+@inject NavigationManager Navigation
+<div class="page">
+
+    <main>
+        @if (showNavBar)
+        {
+            <NavBar/>
+        }
+        <div class="top-row px-4">
+            @* <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a> *@
+        </div>
+
+        <article class="content">
+            @Body
+
+        </article>
+    </main>
+</div>
+<Toasts class="p-5 mt-3" AutoHide="true" Delay="4000" Placement="ToastsPlacement.TopRight" />
+
+
+@code{
+    private bool showNavBar = true;
+
+    protected override void OnInitialized()
+    {
+        Navigation.LocationChanged += OnLocationChanged;
+        UpdateNavBarVisibility(Navigation.Uri);
+    }
+
+    private void OnLocationChanged(object sender, LocationChangedEventArgs e)
+    {
+        UpdateNavBarVisibility(e.Location);
+    }
+
+    private void UpdateNavBarVisibility(string uri)
+    {
+        // Update this logic to match your actual login and signup URLs
+        showNavBar = !uri.Contains("login") && !uri.Contains("signup");
+        StateHasChanged(); // Trigger re-render
+    }
+
+    public void Dispose()
+    {
+        Navigation.LocationChanged -= OnLocationChanged;
+    }
+}

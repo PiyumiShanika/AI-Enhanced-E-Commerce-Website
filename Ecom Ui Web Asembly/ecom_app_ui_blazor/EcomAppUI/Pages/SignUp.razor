@@ -1,0 +1,176 @@
+﻿@page "/signup"
+@using System.ComponentModel.DataAnnotations
+@using System.Net.Http
+@inject NavigationManager Navigation
+
+<link rel="stylesheet" href="/css/SignupStyle.css" />
+
+<div class="dbod">
+    <section class="container">
+        <div class="content">
+            <div class="image-box">
+                <img src="https://img.freepik.com/free-vector/sign-up-concept-illustration_114360-7885.jpg?t=st=1719080779~exp=1719084379~hmac=7fd9556fc374a94e4da9b83b85e9a13d29c74370351c8493ff526b4e26f08597&w=740"
+                     alt="Beautiful Sea Landscape" />
+            </div>
+
+            <div class="form-container">
+                <header class="htag">Sign Up</header>
+                <EditForm Model="@registerData" OnValidSubmit="@RegisterUser" class="form">
+                    <DataAnnotationsValidator />
+
+                    <div class="column">
+                        <div class="input-box">
+                            <label>First Name</label>
+                            <InputText @bind-Value="registerData.first_Name" />
+                            <ValidationMessage For="@(() => registerData.first_Name)" />
+                        </div>
+
+                        <div class="input-box">
+                            <label>Last Name</label>
+                            <InputText @bind-Value="registerData.Last_Name" />
+                            <ValidationMessage For="@(() => registerData.Last_Name)" />
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="input-box">
+                            <label>Email</label>
+                            <InputText @bind-Value="registerData.Email" />
+                            <ValidationMessage For="@(() => registerData.Email)" />
+                        </div>
+
+                        <div class="input-box">
+                            <label>Mobile</label>
+                            <InputText @bind-Value="registerData.Mobile" />
+                            <ValidationMessage For="@(() => registerData.Mobile)" />
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="input-box">
+                            <label>Password</label>
+                            <InputText @bind-Value="registerData.Password" type="password" />
+                            <ValidationMessage For="@(() => registerData.Password)" />
+                        </div>
+
+                        <div class="input-box">
+                            <label>Confirm Password</label>
+                            <InputText @bind-Value="registerData.Confirm_password" type="password" />
+                            <ValidationMessage For="@(() => registerData.Confirm_password)" />
+                        </div>
+                    </div>
+
+                    <div class="input-box address">
+                        <label>Address</label>
+                        <div class="column d-flex">
+                            <div class="select-box">
+                                <select @bind="registerData.Address.Country">
+                                    <option hidden>Country</option>
+                                    <option>America</option>
+                                    <option>Japan</option>
+                                    <option>India</option>
+                                    <option>Nepal</option>
+                                    <option>Sri Lanka</option>
+                                    <option>UK</option>
+                                </select>
+                            </div>
+
+                            <InputText placeholder="Enter your City" @bind-Value="registerData.Address.City" />
+                        </div>
+
+                        <div class="column">
+                            <InputText placeholder="Enter your Street" @bind-Value="registerData.Address.Street" />
+                            <InputText placeholder="Enter your Postal Code" @bind-Value="registerData.Address.Postal_Code" />
+                        </div>
+                    </div>
+
+                    <button type="submit">Submit</button>
+                    <hr />
+                    <p class="have-account">
+                        Already have an Account? <a href="/login">Sign In</a>
+                    </p>
+
+                    @if (!string.IsNullOrEmpty(resultMessage))
+                    {
+                        <p>@resultMessage</p>
+                    }
+                </EditForm>
+            </div>
+        </div>
+    </section>
+</div>
+
+@code {
+    private RegisterDTO registerData = new RegisterDTO();
+    private string resultMessage;
+    private bool submitted = false;
+    [Inject] protected ToastService ToastService { get; set; } = default!;
+
+    public class RegisterDTO
+    {
+        [Required(ErrorMessage = "Please Enter Your First Name")]
+        public string first_Name { get; set; }
+
+        [Required(ErrorMessage = "Please Enter Your Last Name")]
+        public string Last_Name { get; set; }
+
+        [Required(ErrorMessage = "Please Enter Your Email")]
+        [EmailAddress(ErrorMessage = "Please enter a valid email address")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Please Enter Your Mobile Number")]
+        public string Mobile { get; set; }
+
+        [Required(ErrorMessage = "Please Enter Your Password")]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{5,}$",
+        ErrorMessage = "Password must be at least 5 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character.")]
+        public string Password { get; set; }
+
+        [Required(ErrorMessage = "Please Enter Your Confirm Password")]
+        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        public string Confirm_password { get; set; }
+
+        public CreateAddressDTO Address { get; set; } = new CreateAddressDTO();
+    }
+
+    public class CreateAddressDTO
+    {
+        public string Country { get; set; }
+        public string City { get; set; }
+        public string Street { get; set; }
+        public string Postal_Code { get; set; }
+    }
+
+    public async Task RegisterUser()
+    {
+        submitted = true; // Set submitted to true on form submission
+        var editContext = new EditContext(registerData); // Initialize EditContext
+
+        if (!editContext.Validate())
+        {
+            return;
+        }
+
+        try
+        {
+            // Simulate registration process (replace with actual logic)
+            var client = new HttpClient();
+            var response = await client.PostAsJsonAsync("https://localhost:7075/api/user/register", registerData);
+
+            if (response.IsSuccessStatusCode)
+            {
+                resultMessage = "Registration successful!";
+                ToastService.Notify(new(ToastType.Success, $"User Registation successfully."));
+                Navigation.NavigateTo("/login");
+            }
+            else
+            {
+                resultMessage = "Registration failed!";
+            }
+        }
+        catch (Exception ex)
+        {
+            resultMessage = $"Error occurred during registration: {ex.Message}";
+        }
+    }
+}

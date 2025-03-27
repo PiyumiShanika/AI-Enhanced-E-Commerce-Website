@@ -1,0 +1,58 @@
+﻿@page "/Hero-Section"
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Authorization
+@inject NavigationManager Navigate
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<link rel="stylesheet" href="/css/Hero.css" />
+
+<div class=" mctcls">
+    <div class="hero">
+        <div class="text">
+            <p class="text__short">What you want is right at your fingertips</p>
+            <h1 class="text__title">Welcome to Shopping Bay</h1>
+            <p class="text__description">
+                Discover a wide range of products across various categories, from electronics to fashion, home decor to
+                beauty essentials. At ShopEase, we are committed to providing you with the best shopping experience,
+                offering top-quality products at unbeatable prices. Shop now and enjoy exclusive deals, fast shipping,
+                and excellent customer service
+            </p>
+            <AuthorizeView>
+                <Authorized>
+                    <a class="mybtn" href="products">Start Shopping</a>
+                </Authorized>
+                <NotAuthorized>
+                    <a class="mybtn" href="login">Get Started</a>
+                </NotAuthorized>
+            </AuthorizeView>
+         
+        </div>
+
+        <div class=" my-grid">
+            <div class="grid__item one"></div>
+            <div class="grid__item two"></div>
+            <div class="grid__item three"></div>
+            <div class="grid__item four"></div>
+            <div class="grid__item five"></div>
+            <div class="grid__item six"></div>
+            <div class="grid__item seven"></div>
+            <div class="grid__item eight"></div>
+            <div class="grid__item nine"></div>
+            <div class="grid__item ten"></div>
+            <div class="grid__item eleven"></div>
+            <div class="grid__item twelve"></div>
+        </div>
+    </div>
+</div>
+
+@code 
+{
+
+    // private bool IsAuthenticated;
+
+    // protected override async Task OnInitializedAsync()
+    // {
+    //     var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+    //     IsAuthenticated = authState.User.Identity.IsAuthenticated;
+    // }
+}

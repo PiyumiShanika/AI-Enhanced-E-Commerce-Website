@@ -1,0 +1,120 @@
+﻿@page "/card"
+@* @inject ICartServices CartServices *@
+<link rel="stylesheet" href="/css/ItemCardStyle.css" />
+
+
+<body>
+    <div class="product-card" id="@Product_Id">
+        <div class="logo-cart">
+            <i class="fa-solid fa-suitcase-rolling"></i>
+        </div>
+        <div class="main-images">
+            <img id="blue"
+                 class="blue active"
+                 src="@Image_Url"
+                 alt="blue" />
+        </div>
+        <div class="shoe-details">
+            <span class="shoe_name">@Name</span>
+            <p>
+               @Description
+            </p>
+            <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <p>Stock @Stock</p>
+        </div>
+        <div class="color-price">
+            <div class="count-section">
+                <button @onclick="ItemCountDecrease" class="btn btn-secondary item-count-btn">-</button>
+                <label class="item-count">@ItemCount</label>
+                <button @onclick="ItemCountIncrease" class="btn btn-secondary item-count-btn">+</button>
+            </div>
+            <div class="price">
+                <span class="price_num">$@Price</span>
+                <span class="price_letter">Nine dollar only</span>
+            </div>
+        </div>
+        <div class="button">
+            <div class="button-layer"></div>
+            <button @onclick="setData">Add To Cart</button>
+        </div>
+    </div>
+</body>
+
+
+@code {
+    [Parameter]
+    public int Product_Id { get; set; }
+    [Parameter]
+    public string Name { get; set; }
+    [Parameter]
+    public string Image_Url { get; set; }
+    [Parameter]
+    public double Price { get; set; }
+    [Parameter]
+    public double Discount { get; set; }
+    [Parameter]
+    public string Description { get; set; }
+    [Parameter]
+    public int Stock { get; set; }
+
+
+    [Inject] protected ToastService ToastService { get; set; } = default!;
+
+    [Inject]
+    public ICartServices CartServices { get; set; }
+
+    public int ItemCount { get; set; } = 1;
+
+    public void ItemCountIncrease()
+    {
+        if (ItemCount >= Stock)
+        {
+            ToastService.Notify(new(ToastType.Warning, $"You Exceding The Stocke Amount {Stock}."));
+            ItemCount = Stock;
+        }
+        else
+        {
+            ItemCount += 1;
+        }
+
+    }
+
+
+    public void ItemCountDecrease()
+    {
+        if (ItemCount == 1 || ItemCount < 1)
+        {
+            ItemCount = 1;
+        }
+        else
+        {
+            ItemCount -= 1;
+        }
+    }
+
+    public async Task setData()
+    {
+        Console.WriteLine(Product_Id);
+        var UserCartdata = new UserCart
+        {
+            Product_ID = Product_Id,
+            Quntity = ItemCount
+        };
+
+        try
+        {
+            var resultData = await CartServices.AddToCart(UserCartdata);
+            ToastService.Notify(new(ToastType.Success, $"item Added To the Cart."));
+        }
+        catch(Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+    }
+}

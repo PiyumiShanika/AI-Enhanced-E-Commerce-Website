@@ -1,0 +1,132 @@
+﻿@page "/Navbar"
+@using Microsoft.AspNetCore.Components.Authorization
+@inject AuthenticationStateProvider authstate
+@inject NavigationManager Navigation
+@inject IJSRuntime JSRuntime
+@inject HttpClient HttpClient
+@inject IProductServices productServices
+@inject ICartServices cartservices
+
+
+
+@inject IJSRuntime JSRuntime
+
+ <link rel="stylesheet" href="/css/NavBarStyle.css" />
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top nnbar mb-xxl-5">
+    <div class="container-fluid mb-xxl-auto">
+        <a class="navbar-brand text-white" href="#">Shopping Bay</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+                </li>
+                    <li class="nav-item">
+                    <a class="nav-link active text-white" aria-current="page" href="products">Products</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @foreach (var category in categories)
+                            {
+                               
+                                <li><a class="dropdown-item" href="/products/@category.Category_Id">@category.Name</a></li>
+                            }
+                        </ul>
+                    </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Settings
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="Order-History">Order History</a></li>
+                       @*  <li><a class="dropdown-item" @onclick="Logout">Log Out</a></li> *@
+                    </ul>
+                </li>
+                
+            </ul>
+            <form class="d-flex">
+                <AuthorizeView>
+                    <Authorized>
+                        @* <p class="namecls">@context.User.Identity.Name</p> *@
+                      @*   <div class="dropdown show">
+                            <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Hellow @context.User.Identity.Name
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#" @onclick="Logout">LogOut</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div> *@
+
+
+                     <div class="carticon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16" @onclick="Cart">
+                                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0" />
+                                </svg>
+                            <span class="cart-count">@TotalItems</span>
+                        </div>
+                       
+                        <li class="nav-item dropdown btn btn-secondary">
+                      
+                      
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                 @context.User.Identity.Name
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" @onclick="Logout">Logout</a></li>
+                                @*  <li><a class="dropdown-item" @onclick="Logout">Log Out</a></li> *@
+                            </ul>
+                        </li>
+                    </Authorized>
+                    <NotAuthorized>
+                    </NotAuthorized>
+                </AuthorizeView>
+              @*   <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button> *@
+                
+            </form>
+        </div>
+    </div>
+</nav>
+
+
+@code {
+
+    public List<CategoryModel> categories = new List<CategoryModel>();
+    [Parameter]
+    public int TotalItems { get; set; }
+  
+    private async Task Logout()
+
+    {
+
+        var customAuth = (CustomAuthenticationStateProvider)authstate;
+
+        await customAuth.UpdateAuthenticationState(null, null);
+
+        // Navigate to the login page
+
+        Navigation.NavigateTo("/", true);
+
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        categories = await productServices.GetAllCategories();
+    }
+
+    private async Task Cart()
+    {
+        Navigation.NavigateTo("/User-cart");
+    }
+
+  
+  
+}

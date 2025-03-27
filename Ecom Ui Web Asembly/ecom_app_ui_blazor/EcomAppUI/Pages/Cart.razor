@@ -1,0 +1,231 @@
+﻿@page "/User-cart"
+@using Microsoft.AspNetCore.Authorization
+@inject HttpClient httpClient
+@inject ICartServices cartservices
+@inject IJSRuntime JSRuntime
+@attribute [Authorize]
+
+[Inject] protected ToastService ToastService { get; set; } = default!;
+
+
+<link rel="stylesheet" href="/css/Cart.css" />
+ @if (totalItems == 0)
+{
+    <div class="cart-warning">
+        <img src="https://imgs.search.brave.com/26SqHqIiq2QpEM-Fs1n_DB_fCzhzbyq8n_RJtQKGOMY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/ZHJpYmJibGUuY29t/L3VzZXJzLzM2ODEz/NS9zY3JlZW5zaG90/cy81NzA4OTAwL21l/ZGlhLzgyZWMzZmJl/MDEzNzU3MzY0YmZi/ZTMwMmZhN2Q2ODkx/LnBuZz9yZXNpemU9/NDAweDA" />
+        <p>No Product Found In Cart</p>
+        <a class="mybtn" href="products">Start Shopping</a>
+    </div>
+   
+}
+else
+{
+<div class="main">
+    <div>
+    @foreach (var product in cartProducts)
+    {
+        <div class="First" id="@product.Product_Id">
+            <div class="img-container">
+              <img src="@product.Image_Url" alt="itemImage" />
+          </div>
+          <div class="Descrption">
+              <h4>@product.Name</h4>
+              <p>@product.Description</p>
+              <div class="d-flex">
+              <p>Quntity @product.Quntity |</p>
+                    <p class="ms-2">Stock @product.Stock</p>
+                    </div>
+              <p>Item Price $ @product.Price</p>
+              
+              
+              <div class="count-section">
+                        <button class="item-count-btn text-dark" @onclick="()=>ItemCountDecrease(product)">-</button>
+                  <label class="item-count">@product.Quntity</label>
+                <button class="item-count-btn text-dark" @onclick="()=>ItemCountIncrease(product)">+</button>
+                        <div @onclick="() => OnDeleteClicked(product.Product_Id)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="red" class="bi bi-trash mt-2 ms-3" viewBox="0 0 16 16" >
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+                            <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+                        </svg>
+                        </div>
+              </div>
+          </div>
+      </div>
+      }
+      <div class="vertical-divider"></div>
+      </div>
+      <div class="Second float-end">
+          <div class="container">
+              <div class="row">
+                  <div class="col-8 smyp">
+                      <p>SubTotal</p>
+                      <p>Discount</p>
+                      <p> Delivery</p>
+                      <hr class="divider" />
+                      <p class="mt-4">Total</p>
+                  </div>
+                  <div class="col-4">
+                      <p>$@subTotal</p>
+                      <p>$0</p>
+                      <p>20/10/2024</p>
+                      <hr class="divider" />
+                      <p class="mt-4">$@subTotal</p>
+                  </div>
+              </div>
+                <button class="btn btn-primary w-100 mt-4" @onclick="CreateCheckoutSession">Checkout</button>
+          </div>
+        
+       
+
+        <div class="shipping-info float-end">
+            <div class="sinfo">
+                <h4 class="mb-4">Shipping</h4>
+                <AuthorizeView>
+                    <Authorized>
+                        <p>@context.User.Identity.Name</p>
+                    </Authorized>
+                </AuthorizeView>
+                <p>69</p>
+                <p>Old Kottawa Road</p>
+                <p>Nugegoda</p>
+                <span>Change Adress</span>
+            </div>
+        </div>
+      </div>
+  </div>
+<NavBar TotalItems="totalItems" />
+}
+@code {
+    //public int ItemCount { get; set; } = 0;
+    [Parameter]
+    public int Product_Id { get; set; }
+
+    [Inject] protected ToastService ToastService { get; set; } = default!;
+
+
+    public List<CartProduct> cartProducts = new List<CartProduct>();
+    private List<DeleteCartResponse> deleteCartResponses = new List<DeleteCartResponse>();
+    public int totalItems;
+    public decimal subTotal;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        await LoadCartItems();
+
+    }
+
+    public async Task LoadCartItems()
+    {
+        var response = await cartservices.ViewCart();
+
+        if (response.Cart != null)
+        {
+            cartProducts = response.Cart;
+            totalItems = response.TotalItems;
+            subTotal = response.SubTotal;
+        }
+
+    }
+
+
+    public async Task ItemCountIncrease(CartProduct product)
+    {
+        if (product.Quntity>= product.Stock)
+        {
+            product.Quntity = product.Stock;
+            ToastService.Notify(new(ToastType.Warning, $"You Exceding The Stocke Amount {product.Stock}."));
+
+        }
+        else
+        {
+            product.Quntity += 1;
+            await UpdateCartItemQuantity(product.Product_Id, product.Quntity);
+        }
+        RecalculateSubTotal();
+    }
+
+    public async Task ItemCountDecrease(CartProduct product)
+    {
+        if (product.Quntity > 1)
+        {
+            product.Quntity -= 1;
+            await UpdateCartItemQuantity(product.Product_Id, product.Quntity);
+            RecalculateSubTotal();
+        }
+
+    }
+
+    //update cart item quntity
+    private async Task UpdateCartItemQuantity(int productId, int newQuantity)
+    {
+        try
+        {
+            await cartservices.UpdateCartItemQuantityAsync(productId, newQuantity);
+            await LoadCartItems();
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error updating cart item quantity: {ex.Message}");
+        }
+    }
+
+    //delete
+    public async Task OnDeleteClicked(int productId)
+    {
+        await Task.Delay(100);
+        var confirmed = await JSRuntime.InvokeAsync<bool>("confirmDelete");
+        Console.WriteLine("Hellow");
+        Console.WriteLine(productId);
+        if(confirmed)
+        {
+            try
+            {
+                var deletedItem = await cartservices.DeleteCartItem(productId);
+                if (deletedItem != null)
+                {
+                    deleteCartResponses.Remove(deletedItem);
+                    Console.WriteLine($"Item {productId} deleted from cart.");
+                    await LoadCartItems();
+                    ToastService.Notify(new(ToastType.Success, $"Cart Item Delete successfully."));
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error deleting item {productId}: {ex.Message}");
+            }
+        }
+    }
+
+    //checkout session 
+    private async Task CreateCheckoutSession()
+    {
+        try
+        {
+            var session = await cartservices.CreateCheckoutSession();
+         
+
+            Console.WriteLine("secheckout ssion start"); // Example: Log or process the session
+        }
+        catch (Exception ex)
+        {
+            // Handle exception, show error message, etc.
+            Console.WriteLine(ex.Message);
+        }
+        await Task.Delay(40000);
+        await LoadCartItems();
+    }
+
+    //real cal sub total
+    private void RecalculateSubTotal()
+    {
+        subTotal = cartProducts.Sum(product => product.Quntity * (decimal)product.Price);
+    }
+
+    
+
+}

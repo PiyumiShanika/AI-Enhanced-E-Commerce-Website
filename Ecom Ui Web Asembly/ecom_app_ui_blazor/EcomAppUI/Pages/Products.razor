@@ -1,0 +1,114 @@
+﻿@page "/products"
+@page "/products/{category_Id:int}"
+@using System.Text.Json
+@using EcomAppUI.Services
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@inject NavigationManager Navigate
+@inject IProductServices productServices
+@attribute [Authorize]
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+
+
+<link rel="stylesheet" href="/css/ProductStyle.css" />
+
+<AuthorizeView>
+    <Authorized>
+        @if (products == null)
+        {
+            <div class="spinner d-flex justify-content-center align-items-center h-100">
+                <div class="spinner-border text-success" role="status">
+                    <span class="sr-only"></span>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="px-5 m-card my-grid mt-xl-5">
+                @if(category_Id == 0)
+                {
+                    <div class="main-grid">
+
+                        @foreach (var product in products)
+                        {
+                            <div class="ms-4 me-3">
+                                <ItemCard Image_Url="@product.Image_Url"
+                                          Name=@product.Name
+                                          Description=@product.Description
+                                          Price=@product.Price
+                                          Discount=@product.Discount
+                                          Product_Id=@product.Product_Id
+                                          Stock=@product.Stock/>  
+                                      
+                            </div>
+                        }
+                    </div>
+                }else
+                {
+                <div class="main-grid">
+                    @foreach(var category in productsByCategory)
+                    {
+                                <div class="ms-4 me-3">
+                                    <ItemCard Image_Url="@category.Image_Url"
+                                              Name=@category.Name
+                                              Description=@category.Description
+                                              Price=@category.Price
+                                              Discount=@category.Discount />
+                                </div>
+                    }
+                    </div>
+                    
+                }
+               
+            </div>
+        }
+    </Authorized>
+    <NotAuthorized>
+    </NotAuthorized>
+</AuthorizeView>
+
+
+
+@code {
+    private List<ProductModel> products = new List<ProductModel>();
+
+    [Parameter]
+    public int category_Id { get; set; } = 0;
+    private List<ProductModel> productsByCategory = new List<ProductModel>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity.IsAuthenticated)
+        {
+            products = await productServices.GetAllProducts();
+          
+
+        }
+        else
+        {
+            Navigate.NavigateTo("/login");
+        }
+    }
+
+    //new
+    protected override async Task OnParametersSetAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity.IsAuthenticated)
+        {
+            productsByCategory = await productServices.GetProductsByCategory(category_Id); // Update products if needed
+        }
+        else
+        {
+            Navigate.NavigateTo("/login");
+        }
+    }
+
+  
+}

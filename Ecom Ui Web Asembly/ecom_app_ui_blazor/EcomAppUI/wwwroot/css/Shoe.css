@@ -1,0 +1,202 @@
+﻿/* Reset and general styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Roboto Mono", monospace;
+}
+
+/* About Us Section */
+.about-us-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+@media (min-width: 1024px) {
+    .about-us-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.text-content {
+    margin-top: 10px;
+}
+
+.title {
+    font-family: 'Palanquin', sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.highlight {
+    color: #ff6f61; /* coral-red */
+    display: inline-block;
+    margin-top: 3px;
+}
+
+.info-text {
+    font-family: 'Montserrat', sans-serif;
+    color: #64748b; /* slate-gray */
+    font-size: 18px !important; /* text-lg */
+    line-height: 1.75rem; /* leading-7 */
+    margin-top: 1rem; /* mt-4 */
+    max-width: 600px; /* lg:max-w-lg */
+}
+
+.button-container {
+    margin-top: 2.75rem; /* mt-11 */
+}
+
+.view-details-btn {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #ff6f61;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .view-details-btn:hover {
+        background-color: #e55d50;
+    }
+
+.image-container {
+    display: grid;
+    place-content: center;
+}
+
+.shoe-image {
+    object-fit: contain;
+    width: 570px;
+    height: 522px;
+}
+
+/* Utility classes for padding */
+.padding {
+    padding: 3rem 2rem; /* sm:px-16 px-8 sm:py-24 py-12 */
+}
+
+@media (min-width: 640px) {
+    .padding {
+        padding: 6rem 4rem;
+    }
+}
+
+/* Additional padding classes for responsive design */
+.padding-x {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+@media (min-width: 640px) {
+    .padding-x {
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+}
+
+.padding-y {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+@media (min-width: 640px) {
+    .padding-y {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+}
+
+/* Responsive adjustments */
+@media (min-width: 1920px) {
+    .title {
+        font-size: 3.5rem;
+    }
+
+    .info-text {
+        font-size: 1.5rem;
+        max-width: 700px;
+    }
+
+    .view-details-btn {
+        font-size: 1.25rem;
+        padding: 1rem 2rem;
+    }
+
+    .shoe-image {
+        width: 700px;
+        height: 600px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .info-text {
+        font-size: 1.125rem;
+    }
+
+    .view-details-btn {
+        font-size: 1rem;
+        padding: 0.75rem 1.5rem;
+    }
+
+    .shoe-image {
+        width: 570px;
+        height: 522px;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .info-text {
+        font-size: 1rem;
+    }
+
+    .view-details-btn {
+        font-size: 0.875rem;
+        padding: 0.75rem 1.25rem;
+    }
+
+    .shoe-image {
+        width: 470px;
+        height: 422px;
+    }
+}
+
+@media (max-width: 576px) {
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .info-text {
+        font-size: 0.875rem;
+    }
+
+    .view-details-btn {
+        font-size: 0.75rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .shoe-image {
+        width: 370px;
+        height: 322px;
+    }
+}

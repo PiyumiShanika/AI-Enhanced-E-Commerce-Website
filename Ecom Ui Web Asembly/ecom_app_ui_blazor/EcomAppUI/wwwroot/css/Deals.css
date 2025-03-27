@@ -1,0 +1,59 @@
+﻿/* Center the entire content */
+.mycont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensures the container takes up the full viewport height */
+    overflow: hidden;
+    background: linear-gradient(90deg, rgba(255, 121, 0, 0.38) 0%, rgba(0, 188, 212, 0.59) 50%, rgba(173, 176, 138, 1) 100%);
+    padding: 5rem 1rem; /* Adjust padding as needed */
+}
+
+/* Ensure responsive padding for smaller screens */
+@media (max-width: 992px) {
+    .mycont {
+        padding: 3rem 1rem;
+    }
+}
+
+/* Set maximum width for images */
+.carousel-inner img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Style text content */
+.center-text {
+    color: #fff;
+    max-width: 800px; /* Adjust max-width as needed */
+    margin: 0 auto; /* Center align horizontally */
+}
+
+    .center-text span {
+        color: rgb(222, 137, 88);
+    }
+
+    .center-text h1 {
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .center-text p {
+        line-height: 1.6;
+        font-size: 1.1rem;
+        font-style: italic;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+
+
+@media (min-width: 1300px) {
+    .deals-text h1 {
+        font-size: 60px;
+    }
+
+    .deals-text p {
+        font-size: 22px;
+    }
+}

@@ -1,0 +1,141 @@
+{
+  "Files": [
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\EcomAppUI.styles.css",
+      "PackagePath": "staticwebassets\\EcomAppUI.styles.css"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\css\\AboutStyle.css",
+      "PackagePath": "staticwebassets\\css\\AboutStyle.css"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\css\\Baner.css",
+      "PackagePath": "staticwebassets\\css\\Baner.css"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\css\\CarsolStyle.css",
+      "PackagePath": "staticwebassets\\css\\CarsolStyle.css"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\css\\Cart.css",
+      "PackagePath": "staticwebassets\\css\\Cart.css"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\css\\Deals.css",
+      "PackagePath": "staticwebassets\\css\\Deals.css"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\css\\Explore.css",
+      "PackagePath": "staticwebassets\\css\\Explore.css"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\css\\Hero.css",
+      "PackagePath": "staticwebassets\\css\\Hero.css"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\css\\Homestyle.css",
+      "PackagePath": "staticwebassets\\css\\Homestyle.css"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\css\\ItemCardStyle.css",
+      "PackagePath": "staticwebassets\\css\\ItemCardStyle.css"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\css\\NavBarStyle.css",
+      "PackagePath": "staticwebassets\\css\\NavBarStyle.css"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\css\\NewStyle.css",
+      "PackagePath": "staticwebassets\\css\\NewStyle.css"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\css\\Orderhistory.css",
+      "PackagePath": "staticwebassets\\css\\Orderhistory.css"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\css\\ProductStyle.css",
+      "PackagePath": "staticwebassets\\css\\ProductStyle.css"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\css\\Shoe.css",
+      "PackagePath": "staticwebassets\\css\\Shoe.css"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\css\\SignInStyle.css",
+      "PackagePath": "staticwebassets\\css\\SignInStyle.css"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\css\\SignupStyle.css",
+      "PackagePath": "staticwebassets\\css\\SignupStyle.css"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\css\\Special.css",
+      "PackagePath": "staticwebassets\\css\\Special.css"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\css\\Trending.css",
+      "PackagePath": "staticwebassets\\css\\Trending.css"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\css\\footerstyle.css",
+      "PackagePath": "staticwebassets\\css\\footerstyle.css"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\icon-192.png",
+      "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\images\\hedset.png",
+      "PackagePath": "staticwebassets\\images\\hedset.png"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\images\\lap.png",
+      "PackagePath": "staticwebassets\\images\\lap.png"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\images\\moniter.png",
+      "PackagePath": "staticwebassets\\images\\moniter.png"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "F:\\downloads\\Full Stack App\\Ecom Ui Web Asembly\\ecom_app_ui_blazor\\EcomAppUI\\wwwroot\\sample-data\\weather.json",
+      "PackagePath": "staticwebassets\\sample-data\\weather.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.EcomAppUI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.EcomAppUI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.EcomAppUI.props",
+      "PackagePath": "build\\EcomAppUI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.EcomAppUI.props",
+      "PackagePath": "buildMultiTargeting\\EcomAppUI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.EcomAppUI.props",
+      "PackagePath": "buildTransitive\\EcomAppUI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

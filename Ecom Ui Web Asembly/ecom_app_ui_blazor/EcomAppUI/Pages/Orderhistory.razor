@@ -1,0 +1,104 @@
+﻿@page "/Order-History"
+@* @inject IOrderServics orderservices *@
+
+<link rel="stylesheet" href="/css/Orderhistory.css" />
+
+
+<h3 class="mt-xxl-5 Container">Your Order history</h3>
+
+    <div class="myContainer">
+    @foreach (var items in paymethistory)
+    {
+        var collapseId = $"collapse-{items.Order_Id}";
+        <p class="d-flex gap-1">
+          <!-- <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Toggle both elements</button> -->
+
+            <div class="row border text-center p-3 w-100" id="@items.Order_Id">
+              <div class="col">
+                <p class="fw-bold">Oeder ID</p>
+                 @items.Order_Id
+              </div>
+              <div class="col">
+                <p class="fw-bold">Oeder Date</p>
+               @items.Order_Date
+              </div>
+              <div class="col">
+                <p class="fw-bold">Amount</p>
+               @items.price
+              </div>
+              <div class="col">
+                <p class="fw-bold">Payment Statue</p>
+                @items.Order_Status
+              </div>
+              <div class="col">
+                <p class="fw-bold">Payment ID</p>
+              @items.Payment_ID
+              </div>
+              <div class="col">
+                        <div type="button" data-bs-toggle="collapse" data-bs-target="#@collapseId" aria-expanded="false" aria-controls="@collapseId">
+                        <i class="fa-solid fa-arrow-right" @onclick="()=>LoadOrderHistoryitems(items.Order_Id)" ></i>
+                        </div>
+              </div>
+            </div>
+        </p>
+      <div class="row myrow mb-4">
+          <div class="col">
+              <div class="collapse multi-collapse" id="@collapseId">
+                  <div class="card card-body w-50 mb-4">
+
+                     <!-- ----- -->
+                        @foreach (var paymentitems in paymethistoryitems)
+                     {
+                            <div class="First border border-0">
+                                <div class="img-container">
+                                    <img src="@paymentitems.Image_Url" alt="itemImage" />
+                                </div>
+                                <div class="Descrption ms-5">
+                                    <h5>@paymentitems.Product_Name</h5>
+                                    <p>Quntity : @paymentitems.Quantity</p>
+                                    <p>Unite Price : $ @paymentitems.Unite_Price</p>
+                                    <p>Sub Total : $ @paymentitems.Sub_Total</p>
+                                </div>
+                            </div>
+                            <!-- ----- -->
+                        }
+                    </div>
+              </div>
+          </div>
+      </div>
+    }
+      </div>
+     
+
+@code {
+    [Inject]
+    public IOrderServics orderservices { get; set; }
+
+    public List<PaymentHistory> paymethistory = new List<PaymentHistory>();
+    public List<PaymentHistroyItem> paymethistoryitems = new List<PaymentHistroyItem>();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        await LoadOrderHistory();
+    }
+
+    public async Task LoadOrderHistory()
+    {
+        Console.WriteLine("func working");
+        paymethistory = await orderservices.ViewOrders();
+        Console.WriteLine("hellow working");
+
+    }
+
+    public async Task LoadOrderHistoryitems(int Order_Id)
+    {
+        Console.WriteLine("func working order item");
+        Console.WriteLine($"order id is {Order_Id}");
+        paymethistoryitems = await orderservices.ViewOrderitems(Order_Id);
+        Console.WriteLine("hellow working order item");
+
+    }
+
+}

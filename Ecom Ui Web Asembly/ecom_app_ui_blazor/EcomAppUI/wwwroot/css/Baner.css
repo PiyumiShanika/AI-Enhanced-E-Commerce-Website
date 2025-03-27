@@ -1,0 +1,150 @@
+﻿.third_section, .second-third_section {
+    height: 80vh;
+    width: 100%;
+    margin: 40px 0;
+    background-image: url("https://img.freepik.com/free-photo/comfortable-pillow-sofa_74190-10005.jpg?t=st=1720426333~exp=1720429933~hmac=0f90aa5ba9885e504ce41e97310d8f75d3d223df3bc63bda609dd2806853acbe&w=1380");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    position: relative;
+}
+
+    .third_section .gradient-container, .second-third_section .gradient-container {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: linear-gradient(45deg,#000000fc, #2d5c7833);
+        z-index: 0;
+    }
+
+.third-title-section, .second-third-title-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 10;
+    text-align: center;
+}
+
+    .third-title-section h1, .second-third-title-section h1 {
+        color: #fff;
+        font-size: 55px;
+        font-weight: 700;
+    }
+
+    .third-title-section p, .second-third-title-section p {
+        color: #fff;
+        font-size: 25px;
+        margin-bottom: 80px;
+    }
+
+.third-img-section {
+    width: 100%;
+}
+
+    .third-img-section img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
+    }
+
+.explor-button {
+    background-color: #ff6a00 !important;
+    padding: 10px 30px !important;
+    color: white;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    border-radius: 8px;
+    transition: 0.1s linear;
+}
+
+    .explor-button:hover {
+        background-color: #ff9400 !important;
+    }
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .third-title-section h1, .second-third-title-section h1 {
+        font-size: 45px;
+    }
+
+    .third-title-section p, .second-third-title-section p {
+        font-size: 22px;
+        margin-bottom: 60px;
+    }
+
+    .explor-button {
+        padding: 8px 25px !important;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 992px) {
+    .third-title-section h1, .second-third-title-section h1 {
+        font-size: 40px;
+    }
+
+    .third-title-section p, .second-third-title-section p {
+        font-size: 20px;
+        margin-bottom: 50px;
+    }
+
+    .explor-button {
+        padding: 7px 20px !important;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .third-title-section h1, .second-third-title-section h1 {
+        font-size: 35px;
+    }
+
+    .third-title-section p, .second-third-title-section p {
+        font-size: 18px;
+        margin-bottom: 40px;
+    }
+
+    .explor-button {
+        padding: 6px 18px !important;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .third-title-section h1, .second-third-title-section h1 {
+        font-size: 30px;
+    }
+
+    .third-title-section p, .second-third-title-section p {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .explor-button {
+        padding: 5px 15px !important;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 400px) {
+    .third-title-section h1, .second-third-title-section h1 {
+        font-size: 25px;
+    }
+
+    .third-title-section p, .second-third-title-section p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .explor-button {
+        padding: 4px 12px !important;
+        font-size: 12px;
+    }
+}

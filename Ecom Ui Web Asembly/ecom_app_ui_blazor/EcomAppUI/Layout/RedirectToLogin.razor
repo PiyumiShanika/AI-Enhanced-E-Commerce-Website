@@ -1,0 +1,26 @@
+﻿@page "/redirecttologin"
+@using Microsoft.AspNetCore.Components.Authorization
+@inject NavigationManager Navigation
+@inject IProductServices productServices
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+
+  
+@code {
+    private List<ProductModel> products;
+
+    protected override async void OnInitialized()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity.IsAuthenticated)
+        {
+            products = await productServices.GetAllProducts();
+        }
+        else
+        {
+            Navigation.NavigateTo("/login");
+        }
+    }
+}

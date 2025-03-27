@@ -1,0 +1,296 @@
+﻿/* Basic Styling */
+.mcls {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.section {
+    padding: 50px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: "Roboto Mono", monospace !important;
+}
+.mbtn {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #ff6f61;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration:none !important;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.col-lg-6 {
+    width: 50%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Left Content Styling */
+.left-content {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+    .left-content h2 {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .left-content span {
+        display: block;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+.quote {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+    .quote i {
+        font-size: 24px;
+        color: #888;
+        margin-right: 10px;
+    }
+
+    .quote p {
+        font-size: 16px;
+        color: #666;
+    }
+
+.main-border-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+    .main-border-button:hover {
+        background-color: #0056b3;
+    }
+
+/* Right Content Styling */
+.right-content {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.leather,
+.types {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+    .leather h4,
+    .types h4 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .leather span,
+    .types span {
+        display: block;
+        font-size: 14px;
+        color: #888;
+    }
+
+.first-image,
+.second-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+    .first-image img,
+    .second-image img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+    }
+
+    .first-image:hover img,
+    .second-image:hover img {
+        transform: scale(1.1);
+    }
+
+/* Responsive Design */
+@media (max-width: 1920px) {
+    .left-content,
+    .right-content {
+        padding: 25px;
+    }
+
+        .left-content h2 {
+            font-size: 34px;
+        }
+
+    .quote i {
+        font-size: 22px;
+    }
+
+    .quote p {
+        font-size: 15px;
+    }
+
+    .main-border-button {
+        padding: 9px 18px;
+        font-size: 15px;
+    }
+
+    .leather h4,
+    .types h4 {
+        font-size: 22px;
+    }
+
+    .leather span,
+    .types span {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .col-lg-6 {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .left-content,
+    .right-content {
+        padding: 20px;
+    }
+
+        .left-content h2 {
+            font-size: 30px;
+        }
+
+    .quote i {
+        font-size: 20px;
+    }
+
+    .quote p {
+        font-size: 14px;
+    }
+
+    .main-border-button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .leather h4,
+    .types h4 {
+        font-size: 20px;
+    }
+
+    .leather span,
+    .types span {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 30px 0;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .left-content,
+    .right-content {
+        padding: 15px;
+    }
+
+        .left-content h2 {
+            font-size: 24px;
+        }
+
+    .quote i {
+        font-size: 18px;
+    }
+
+    .quote p {
+        font-size: 12px;
+    }
+
+    .main-border-button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .leather h4,
+    .types h4 {
+        font-size: 18px;
+    }
+
+    .leather span,
+    .types span {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .section {
+        padding: 20px 0;
+    }
+
+    .left-content,
+    .right-content {
+        padding: 10px;
+    }
+
+        .left-content h2 {
+            font-size: 20px;
+        }
+
+    .quote i {
+        font-size: 16px;
+    }
+
+    .quote p {
+        font-size: 10px;
+    }
+
+    .main-border-button {
+        padding: 5px 10px;
+        font-size: 10px;
+    }
+
+    .leather h4,
+    .types h4 {
+        font-size: 16px;
+    }
+
+    .leather span,
+    .types span {
+        font-size: 8px;
+    }
+}

@@ -1,0 +1,260 @@
+﻿/* Base styles */
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5rem 10rem; /* Adjusted margin for left and right sides */
+    gap: 2rem;
+    align-items: flex-start !important;
+}
+
+.First {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: row;
+    width: 80%;
+    margin-bottom: 3rem !important;
+}
+
+.img-container {
+    width: 150px; /* Fixed width for the image container */
+    height: 150px; /* Fixed height for the image container */
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .img-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures the image covers the container while maintaining aspect ratio */
+        border-radius: 8px;
+    }
+
+.Descrption {
+    margin-left: 3rem;
+    flex: 1;
+}
+
+.Second {
+    margin-top: 2rem; /* Adjusted to reduce top margin */
+    margin-left: 20rem !important;
+    font-size: 1.25rem;
+    flex: 1;
+    max-width: 300px;
+    height:auto !important;
+    display :flex ;
+    flex-direction: column;
+    justify-content:flex-start;
+}
+
+.smyp {
+    font-weight: bold !important;
+}
+
+.vertical-divider {
+    border-left: 2px solid #e0e0e0;
+    height: auto;
+    margin: 0 2rem; /* Adjust as necessary */
+}
+
+/* Shipping info alignment */
+.shipping-info {
+    margin-top: 3rem; /* Adjusted to reduce top margin */
+    margin-right: 19rem !important; /* Adjust to align with the left margin of .main */
+    width:300px !important;
+    font-size:18px !important;
+}
+
+.sinfo p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.sinfo span {
+    color: orange;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+        margin: 2rem 1rem; /* Adjusted margin for left and right sides */
+    }
+
+    .Descrption {
+        margin-left: 0;
+    }
+
+    .Second {
+        margin-left: 0;
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    .vertical-divider {
+        border-left: none;
+        border-top: 2px solid #e0e0e0;
+        width: 100%;
+        height: 2px;
+        margin: 2rem 0; /* Adjust as necessary */
+    }
+
+    .shipping-info {
+        margin-left: 1rem; /* Adjust for responsiveness */
+    }
+}
+
+@media (max-width: 576px) {
+    .count-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .item-count {
+        margin-bottom: 0.5rem;
+    }
+
+    .item-count-btn {
+        width: 100%;
+    }
+}
+
+/* Styles for the count section */
+.count-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.item-count-btn {
+    color: white;
+    background-color:transparent !important;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 3px 8px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(159, 155, 155, 0.4);
+}
+
+.item-count {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Column alignment */
+.container {
+    padding: 0;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.col-8, .col-4 {
+    flex: 1;
+    min-width: 45%;
+}
+
+.col-4 {
+    text-align: right;
+}
+
+/* Spacing */
+.mt-xxl-5 {
+    margin-top: 3rem;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+/* General adjustments */
+hr {
+    border: 0;
+    border-top: 1px solid #e0e0e0;
+    margin: 2rem 0;
+}
+
+/* Divider styling */
+.divider {
+    width: 100%;
+    border: 0;
+    border-top: 2px solid #e0e0e0;
+    margin: 4rem 0;
+}
+
+/* Button styles */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    .btn-primary:active {
+        background-color: #004080;
+    }
+
+.w-100 {
+    width: 100%;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+
+/*nobr product found*/
+
+.cart-warning {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 8px; /* Border radius */
+    padding: 20px;
+    font-size: 24px; /* Font size */
+    font-weight:bold !important;
+}
+.cart-warning img{
+    width:450px !important
+}
+
+    .cart-warning p {
+        margin-bottom: 10px;
+        font-size:20px !important;
+        text-align:center !important;
+    }
+
+    .cart-warning .mybtn {
+        /*max-width: 120px;*/
+        text-align: center;
+        display: inline-block;
+        text-decoration: none;
+        color: white;
+        background-color: #ff6f61;
+        padding: 0.5em 1em;
+        border-radius: 0.5em;
+        margin: 0 auto;
+        text-decoration: none !important;
+        font-size:20px !important;
+    }

@@ -1,0 +1,101 @@
+﻿@page "/login"
+
+@using BlazorBootstrap
+@using Microsoft.AspNetCore.Components.Authorization
+@inject IUserServices UserServices
+@inject NavigationManager Navigation
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<link rel="stylesheet" href="/css/SignInStyle.css" />
+
+<body>
+    <div class="container">
+        <div class="image-box">
+            <img src="https://img.freepik.com/free-vector/my-password-concept-illustration_114360-3864.jpg?t=st=1719080468~exp=1719084068~hmac=a17201c6ddf12f18b950c9fc31e83c3c81e5264a4e559d37b17250a9bbebcfc5&w=740"
+                 alt="Beautiful Sea Landscape" />
+        </div>
+
+        <div class="login_form">
+            <EditForm Model="@loginData" OnValidSubmit="@GetAccessToken">
+                <h2 class="header">Sign In</h2>
+                <div class="input_box">
+                    <label for="email">Email</label>
+                    <input type="email"
+                           id="email"
+                           placeholder="Enter email address"
+                           required @bind-value="loginData.Email" />
+                </div>
+                <div class="input_box">
+                    <div class="password_title mt-3 mb-3">
+                        <label for="password">Password</label>
+                        <a href="#">Forgot Password?</a>
+                    </div>
+
+                    <input type="password"
+                           id="password"
+                           placeholder="Enter your password"
+                           required @bind-value="loginData.Password" />
+                </div>
+                <button type="submit" class="mt-4">Log In</button>
+
+                <p class="sign_up">
+                    Don't have an account? <NavLink href="/signup">Sign up</NavLink>
+                </p>
+                <p class="separator">
+                    <span>or</span>
+                </p>
+                <div class="login_option">
+                    <div class="option">
+                        <a href="#">
+                            <i class="fa-brands fa-google"></i>
+                            <span>Google</span>
+                        </a>
+                    </div>
+                    <div class="option">
+                        <a href="#">
+                            <i class="fa-brands fa-apple"></i>
+                            <span>Apple</span>
+                        </a>
+                    </div>
+                </div>
+            </EditForm>
+        </div>
+    </div>
+</body>
+
+@* <p>@loginData.Email</p>
+<p>@loginData.Password</p>
+<p></p>
+ *@
+@code {
+    public LoginModel loginData = new LoginModel();
+
+    [Inject]
+    protected ToastService ToastService { get; set; } = default!;
+
+    public async Task GetAccessToken()
+    {
+        try
+        {
+            Console.WriteLine("clicked");
+            var token = await UserServices.GetAccessToken(loginData);
+            if (token != null)
+            {
+                var customAuth = (CustomAuthenticationStateProvider)AuthenticationStateProvider;
+                await customAuth.UpdateAuthenticationState(token, loginData.Email);
+                ToastService.Notify(new(ToastType.Success, $"Login successfully."));
+                Navigation.NavigateTo("/");
+            }
+            else
+            {
+                ToastService.Notify(new(ToastType.Danger, $"Login Fail.Incorrect email or password. "));
+            }
+
+        }
+        catch (Exception ex)
+        {
+            ToastService.Notify(new(ToastType.Danger, $"Login Fail.{ex.Message}"));
+            throw new Exception($"Error Occured when try to login!, error  : {ex.Message}");
+        }
+    }
+}
